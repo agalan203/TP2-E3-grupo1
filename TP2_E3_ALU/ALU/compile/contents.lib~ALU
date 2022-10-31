@@ -1,0 +1,11 @@
+11
+~M 0 "" 0 $root
+~A 1 "" 0 $root
+~M 1 "../src/ALU.v" 23 ALU
+~A 1 "../src/ALU.v" 23 ALU
+~M 3 "../src/ALU.v" 23 ALUv2
+~A 1 "../src/ALU.v" 23 ALUv2
+~M 1 "../src/ALU.v" 80 bcd2bin
+~A 1 "../src/ALU.v" 80 bcd2bin
+~M 3 "../src/ALU.v" 93 test_ALU
+~A 1 "../src/ALU.v" 93 test_ALU
