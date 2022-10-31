@@ -1,1 +1,0 @@
--o c:/My_Designs/TP2_E3_v2/calculadora/compile -lc c:/My_Designs/TP2_E3_v2/library.cfg -fl c:/My_Designs/TP2_E3_v2/calculadora/projlib.cfg -pli "C:/Aldec/Active-HDL-Student-Edition/bin/systf.dll" -epr c:/My_Designs/TP2_E3_v2/calculadora/compile/calculadora.epr -O2 -sve -msg 5 -sv2k12 -work calculadora c:/My_Designs/TP2_E3_v2/calculadora/src/ALU.v 
