@@ -1,0 +1,37 @@
+timestamp=1667396502475
+
+[~A]
+LastVerilogToplevel=TestSave
+ModifyID=4
+Version=74
+c:/My_Designs/Guardar_TP2_E3/Guardar/src/guardar.v=0*6695*7633
+
+[~MFT]
+0=7|0Guardar.mgf|7633|4375
+1=6|1Guardar.mgf|13793|12007
+3=12|3Guardar.mgf|13990|10821
+
+[$root]
+A/$root=22|||1*12007
+BinW64/$root=3*10821
+SLP=3*10936
+Version=13.0.376.8320 (Windows64)|0000000b789cd3f53752d02d2e33ca3634020010aa02e5|c73a565f2ade592f8ac1c68f484c92169afb0c097de5f65c3832e6f776086f8b
+
+[Save]
+A/Save=22|../src/guardar.v|1|1*12381
+BinW64/Save=3*11004
+R=../src/guardar.v|1
+SLP=3*11929
+Version=13.0.376.8320 (Windows64)|0000000b789cd3f53752d02d2e33ca3634020010aa02e5|070a50e2a645e142f2510bec32260daa302b41f7da402de168fe2913bd21ea4c
+
+[TestSave]
+A/TestSave=22|../src/guardar.v|40|1*13793
+BinW64/TestSave=3*12630
+R=../src/guardar.v|40
+SLP=3*13990
+Version=13.0.376.8320 (Windows64)|0000000b789cd3f53752d02d2e33ca3634020010aa02e5|22218eb978f3332e8d195d868ce5c081a7a93aad61edb2aea66244211d0a82d71876117eb624ec1831d680e148b3b7b8
+
+[~U]
+$root=12|0*6115|
+Save=12|0*6297|
+TestSave=12|0*6528||0x10
