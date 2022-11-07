@@ -1,1 +1,4 @@
 i<>.\src\ALU.v
+i<>.\src\FSM.v
+i<>.\src\Guardar.v
+i<>.\src\MAIN.v

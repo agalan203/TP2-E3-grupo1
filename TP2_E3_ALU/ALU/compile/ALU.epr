@@ -1,1 +1,4 @@
 "../src/ALU.v"	1
+"../src/FSM.v"	1
+"../src/Guardar.v"	1
+"../src/MAIN.v"	1

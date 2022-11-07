@@ -18,8 +18,18 @@ FLOWTOOLS=NONE
 FAMILY=
 [Files]
 /ALU.v=-1
+/FSM.v=-1
+/Guardar.v=-1
+/MAIN.v=-1
+/MAIN.v=-1
+/FSM.v=-1
 [Files.Data]
 .\src\ALU.v=Verilog Source Code
+.\src\FSM.v=Verilog Source Code
+.\src\Guardar.v=Verilog Source Code
+.\src\MAIN.v=Verilog Source Code
+.\src\MAIN.v=Verilog Source Code
+.\src\FSM.v=Verilog Source Code
 [HierarchyViewer]
 HierarchyInformation=
 ShowHide=ShowTopLevel

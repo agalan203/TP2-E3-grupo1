@@ -1,11 +1,23 @@
-11
+27
 ~M 0 "" 0 $root
 ~A 1 "" 0 $root
 ~M 1 "../src/ALU.v" 23 ALU
 ~A 1 "../src/ALU.v" 23 ALU
 ~M 3 "../src/ALU.v" 23 ALUv2
 ~A 1 "../src/ALU.v" 23 ALUv2
+~M 1 "../src/FSM.v" 20 FSM
+~A 1 "../src/FSM.v" 20 FSM
+~M 1 "../src/MAIN.v" 23 MAIN
+~A 1 "../src/MAIN.v" 23 MAIN
+~M 1 "../src/Guardar.v" 1 Save
+~A 1 "../src/Guardar.v" 1 Save
+~M 3 "../src/Guardar.v" 40 TestSave
+~A 1 "../src/Guardar.v" 40 TestSave
 ~M 1 "../src/ALU.v" 80 bcd2bin
 ~A 1 "../src/ALU.v" 80 bcd2bin
 ~M 3 "../src/ALU.v" 93 test_ALU
 ~A 1 "../src/ALU.v" 93 test_ALU
+~M 3 "../src/MAIN.v" 48 test_main
+~A 1 "../src/MAIN.v" 48 test_main
+~M 3 "../src/FSM.v" 148 text_FSM
+~A 1 "../src/FSM.v" 148 text_FSM
