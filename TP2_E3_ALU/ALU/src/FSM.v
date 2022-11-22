@@ -22,7 +22,8 @@ module FSM ( tipo,			//Tipo de tecla	: azul  = 0 (número) y rojo = 1 (signo)
 			 clk,
 			 register,		//Registro de memoria
 			 reset, 		//Activo alto
-			 OE);			//Enable display
+			 OE,			//Enable display
+			 save);			//le pasa el numero a guardar	
 		   //Definición de estados
 	parameter [2:0] WAITING = 3'b000;	  //Espera a que se seleccione una tecla
 	parameter [2:0] SAVENUMBER = 3'b001;   //Recibe un número
@@ -37,6 +38,7 @@ module FSM ( tipo,			//Tipo de tecla	: azul  = 0 (número) y rojo = 1 (signo)
 	output reg [1:0] register;		//Registro de memoria
 	output reg reset; 				//Activo alto
 	output reg [2:0] OE;
+	output reg [3:0] save;
 	
 	//Registros y constantes
     reg op = 0;  					    //Determina si se tocó una operación aritmética válida
@@ -57,7 +59,7 @@ module FSM ( tipo,			//Tipo de tecla	: azul  = 0 (número) y rojo = 1 (signo)
             WAITING: 
 			begin 
 				OE = 0;	       //No se muestra en display
-				reset = 0;
+				reset = 0;				  
 				register = 0;  //No se guarda nada
 				if (tipo)      //Si es un signo
 					begin
@@ -73,7 +75,11 @@ module FSM ( tipo,			//Tipo de tecla	: azul  = 0 (número) y rojo = 1 (signo)
 				else 
 					begin 
 					  	if (number === 4'bz) next_Y = WAITING;   //No se presionó ninguna tecla
-						else next_Y = SAVENUMBER;
+						else
+							begin
+							next_Y = SAVENUMBER;
+							register = 0;
+							end
 					end
              end
             SAVENUMBER: 
@@ -140,7 +146,10 @@ module FSM ( tipo,			//Tipo de tecla	: azul  = 0 (número) y rojo = 1 (signo)
 	end	
 	//Transición de estados	
    	always @( posedge clk)
+		 begin
 		 curr_y <= next_Y;
+		 save = number;
+		 end
 
  endmodule
 
@@ -153,12 +162,14 @@ module FSM ( tipo,			//Tipo de tecla	: azul  = 0 (número) y rojo = 1 (signo)
 		reg reset; 				//Activo alto
 		reg [2:0] OE; 
 		reg [2:0] state;
+		reg [3:0] save;
+		
 		FSM U1( .tipo(tipo),		//Tipo de tecla	: azul  = 0 (número) y rojo = 1 (signo)
 			 .number(number), 		//Número de tecla
 			 .clk(clk),
 			 .register(register),		//Registro de memoria
 			 .reset(reset), 				//Activo alto
-			 .OE(OE));	 
+			 .OE(OE), .save(save));	 
 		initial 
 			
 			begin

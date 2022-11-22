@@ -28,8 +28,8 @@ input [15:0] reg1;
 	output reg ovf;
 	output reg sign;
 
-	reg [15:0] temp_n1;
-	reg [15:0] temp_n2;
+	wire [15:0] temp_n1;
+	wire [15:0] temp_n2;
 	reg [16:0] temp_answ;
 	
 	integer i;
@@ -83,7 +83,7 @@ module bcd2bin //number = ABCD
     input wire [3:0] B, 
     input wire [3:0] C, 
     input wire [3:0] D, 
-    output reg [15:0] bin
+    output wire [15:0] bin
    );
 
    assign bin = (A * 10'd1000) + (B*7'd100) + (C*4'd10) + D;

@@ -2,3 +2,4 @@
 .\src\FSM.v
 .\src\Guardar.v
 .\src\MAIN.v
+.\src\DISPLAY.v

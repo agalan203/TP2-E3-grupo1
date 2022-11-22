@@ -1,7 +1,16 @@
+[OPENDOC|Aldec.Hde.HdePlugIn.7|.\ALU\src/MAIN.v|]
+TemplateId=2
+tab=lu
 [OPENDOC|Aldec.Hde.HdePlugIn.7|.\ALU\src/ALU.v|]
 TemplateId=2
 tab=lu
-[OPENDOC|Aldec.Hde.HdePlugIn.7|.\ALU\src\FSM.v|]
+[OPENDOC|Aldec.Hde.HdePlugIn.7|.\ALU\src/Guardar.v|]
+TemplateId=2
+tab=lu
+[OPENDOC|Aldec.Hde.HdePlugIn.7|.\ALU\src/FSM.v|]
+TemplateId=2
+tab=lu
+[OPENDOC|Aldec.Hde.HdePlugIn.7|.\ALU\src/DISPLAY.v|]
 TemplateId=2
 ActiveDocument=1
 tab=lu

@@ -9,28 +9,35 @@ module Save(
 
     always @(nr or regi or reset)
         begin
-            regop = 0;
             if (reset==1)
                 begin
                     reg1 = 0;
                     reg2 = 0;
+					regop = 0;
                 end
             else
                 begin
                     case(regi)
-                        0 : begin
+                        1 : begin
+							if (nr < 4'b1010)
+								begin
                                 reg1[15:12] = reg1[11:8];
                                 reg1[11:8] = reg1[7:4];
                                 reg1[7:4] = reg1[3:0];
                                 reg1[3:0] = nr;
+								end
                             end
-                        1 : begin
+                        2 : begin
+							if (nr < 4'b1010)
+								begin
                                 reg2[15:12] = reg2[11:8];
                                 reg2[11:8] = reg2[7:4];
                                 reg2[7:4] = reg2[3:0];
                                 reg2[3:0] = nr;
+								end
                             end
-                        2 : if (nr==4'b1010) regop = 1;
+                        3 : if (nr==4'b1010) regop = 1;
+							else if (nr==4'b1011) regop = 0;
                     endcase
                 end
         end

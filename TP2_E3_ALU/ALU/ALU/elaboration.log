@@ -1,18 +1,15 @@
-Active-HDL 13.0.376.8320 2022-11-07 18:52:32
+Active-HDL 13.0.376.8320 2022-11-21 17:32:16
 
 Elaboration top modules:
-Verilog Module                test_main
+Verilog Module                testdisp
 
 
 -------------------------------------------------------------------------------------------
 Verilog Module          | Library | Info | Compiler Version          | Compilation Options
 -------------------------------------------------------------------------------------------
-test_main               | alu     |      | 13.0.376.8320 (Windows64) | -O2 -sv2k12
-MAIN                    | alu     |      | 13.0.376.8320 (Windows64) | -O2 -sv2k12
-FSM                     | alu     |      | 13.0.376.8320 (Windows64) | -O2 -sv2k12
-Save                    | alu     |      | 13.0.376.8320 (Windows64) | -O2 -sv2k12
-ALU                     | alu     |      | 13.0.376.8320 (Windows64) | -O2 -sv2k12
-bcd2bin                 | alu     |      | 13.0.376.8320 (Windows64) | -O2 -sv2k12
+testdisp                | alu     |      | 13.0.376.8320 (Windows64) | -O2 -sv2k12
+DISPLAY                 | alu     |      | 13.0.376.8320 (Windows64) | -O2 -sv2k12
+BCDto7segment           | alu     |      | 13.0.376.8320 (Windows64) | -O2 -sv2k12
 -------------------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------------------

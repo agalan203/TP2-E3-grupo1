@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RadiantProject version="4.2" radiant="3.2.0.18.0" title="TP2E3" device="iCE40UP5K-SG48I" performance_grade="High-Performance_1.2V" default_implementation="TP2E3">
+    <Options/>
+    <Implementation title="TP2E3" dir="TP2E3" description="TP2E3" synthesis="lse" default_strategy="Strategy1">
+        <Options def_top="MAIN"/>
+        <Source name="source/TP2E3/ALU.v" type="Verilog" type_short="Verilog">
+            <Options/>
+        </Source>
+        <Source name="source/TP2E3/GUARDAR.v" type="Verilog" type_short="Verilog">
+            <Options/>
+        </Source>
+        <Source name="source/TP2E3/MAIN.v" type="Verilog" type_short="Verilog">
+            <Options top_module="MAIN"/>
+        </Source>
+        <Source name="source/TP2E3/FSM.v" type="Verilog" type_short="Verilog">
+            <Options/>
+        </Source>
+        <Source name="source/TP2E3/DISPLAY.v" type="Verilog" type_short="Verilog">
+            <Options/>
+        </Source>
+    </Implementation>
+    <Strategy name="Strategy1" file="TP2E31.sty"/>
+</RadiantProject>
