@@ -52,6 +52,7 @@ module DISPLAY (
 				1: temp = reg1;
 				2: temp = reg2;
 				3: temp = res;
+				default temp = temp;
 			endcase
 			state = dispD1;
 		end
@@ -91,6 +92,14 @@ module DISPLAY (
 					D4=1;
 					bcddig=temp[3:0]; 
 				end
+				default
+				begin
+					D1=D1;
+					D2=D2;
+					D3=D3;
+					D4=D4;
+					bcddig=bcddig; 
+				end
 			endcase
 			if(state==dispD4)
 				state = dispD1;
@@ -127,6 +136,12 @@ module BCDto7segment(
 				7: sevenseg=8'b11100000;
 				8: sevenseg=8'b11111110;
 				9: sevenseg=8'b11100110;
+				10:	sevenseg=8'bz;
+				11: sevenseg=8'bz;
+				12: sevenseg=8'bz;
+				13: sevenseg=8'bz;
+				14: sevenseg=8'bz;
+				15: sevenseg=8'bz;
 				default sevenseg=8'bz;
 			endcase		
 		end

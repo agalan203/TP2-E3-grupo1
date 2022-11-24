@@ -20,19 +20,71 @@
 `timescale 1 ns / 1 ps
 
 //{module {MAIN}}
-module MAIN (tipo, number, clk, ovf, sign, dispdig, D1, D2, D3, D4);	
+module MAIN (
+	input wire gpio_12,	
+	input wire gpio_21,
+	input wire gpio_13,
+	input wire gpio_19,
+	input wire gpio_47,
 	
-	input wire tipo;
-	input wire [3:0] number;
-	input wire clk;
+	output wire gpio_18,
+	output wire gpio_11,
+	output wire gpio_9,
+	output wire gpio_6,
 	
-	output wire ovf;
-	output wire sign;
-	output wire [7:0] dispdig;
-	output wire D1;
-	output wire D2;
-	output wire D3;
-	output wire D4;
+	output wire gpio_2, 
+	output wire gpio_46, 
+	output wire gpio_23, 
+	output wire gpio_25, 
+	output wire gpio_26, 
+	output wire gpio_27, 
+	output wire gpio_32, 
+	output wire gpio_35, 
+	output wire gpio_31, 
+	output wire gpio_37, 
+	output wire gpio_34, 
+	output wire gpio_43, 
+	output wire gpio_36, 
+	output wire gpio_42);
+	
+	//INPUTS				
+	wire Treset;
+	wire [0:3] fil_codigo;
+	
+	//Assign inputs	  
+	assign Treset = gpio_47; //resetTotal
+	assign fil_codigo = {gpio_12, gpio_21, gpio_13, gpio_19};   //filas
+	
+	//OUTPUTS
+	wire ovf;
+	wire sign;
+	wire [7:0] dispdig;
+	wire D1;
+	wire D2;
+	wire D3;
+	wire D4;
+	
+	//Assign outputs
+	assign ovf = gpio_2;
+	assign sign = gpio_46;
+	assign dispdig[0] = gpio_23;   //a
+	assign dispdig[1] = gpio_25;   //b
+	assign dispdig[2] = gpio_26;   //c
+	assign dispdig[3] = gpio_27;   //d
+	assign dispdig[4] = gpio_32;   //e
+	assign dispdig[5] = gpio_35;   //f
+	assign dispdig[6] = gpio_31;   //g
+	assign dispdig[7] = gpio_37;   //decimal
+	assign D1 = gpio_34;
+	assign D2 = gpio_43;
+	assign D3 = gpio_36;
+	assign D4 = gpio_42;
+	 
+	wire [0:3]col_codigo = {gpio_18, gpio_11, gpio_9, gpio_6}; 	//columnas
+	
+	//CLK
+	wire clk;
+	SB_LFOSC u_SV_HFOSC(.CLKLFPU(1'b1), .CLKLFEN(1'b1), .CLKLF(clk));
 	
 	//conexiones FSM-SAVE
 	wire [1:0] register;
@@ -44,41 +96,38 @@ module MAIN (tipo, number, clk, ovf, sign, dispdig, D1, D2, D3, D4);
 	wire [15:0] reg1; 
 	wire [15:0] reg2;
 	wire regop;
-	
+	                                                            
 	//conexiones ALU-DISPLAY
-	wire [15:0] result;
+	wire [15:0] result;	 										
 	
-	FSM theFSM ( .tipo(tipo), .number(number), .clk(clk), .register(register), .reset(reset), .OE(OE), .save(save), .state(state));
+	Teclado theTECLADO (.col_codigo(col_codigo), .fil_codigo(fil_codigo), .Num(number), .tipo_out(tipo), .clk(clk), .reset(Treset));
+	FSM theFSM ( .tipo(tipo), .number(number), .clk(clk), .register(register), .reset(reset), .OE(OE), .save(save));
 	Save theSAVE (.nr(save), .regi(register), .reset(reset), .reg1(reg1), .reg2(reg2), .regop(regop));
 	ALU theALU (.reg1(reg1), .reg2(reg2), .regop(regop), .res(result), .ovf(ovf), .sign(sign));
 	DISPLAY theDISPLAY (.reg1(reg1), .reg2(reg2), .res(result), .OE(OE), .clk(clk), .dispdig(dispdig), .D1(D1), .D2(D2),.D3(D3), .D4(D4));
 
-endmodule  
+endmodule 
 
 module test_main ();
 	reg tipo;
 	reg [3:0] number;
 	reg clk;
-	reg [15:0] result;
+	
 	reg ovf;
 	reg sign;
-	reg [15:0] reg1; 
-	reg [15:0] reg2;
-	reg regop;
-	reg reset;
-	reg [2:0] state;
-	reg [3:0] save;
+	reg [7:0] dispdig; 
+	reg D1;
+	reg D2;
+	reg D3;
+	reg D4;
 	
-	MAIN my_main (tipo, number, clk, ovf, sign, dispdig, D1, D2, D3, D4);
+	MAIN my_main (tipo, number, ovf, sign, dispdig, D1, D2, D3, D4);
 	
 	initial
 		begin
-			clk = 0;
 			tipo = 1;
 			number = 4'b1111;
 		end
-		
-	always #5ns clk = ~clk;
 		
 	initial
 		begin	

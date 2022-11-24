@@ -18,6 +18,11 @@ module Save(
             else
                 begin
                     case(regi)
+						0 : begin
+							reg1 = reg1;
+							reg2 = reg2;
+							regop = regop;
+							end
                         1 : begin
 							if (nr < 4'b1010)
 								begin
@@ -38,6 +43,12 @@ module Save(
                             end
                         3 : if (nr==4'b1010) regop = 1;
 							else if (nr==4'b1011) regop = 0;
+						default
+							begin
+							reg1 = reg1;
+							reg2 = reg2;
+							regop = regop;
+							end
                     endcase
                 end
         end

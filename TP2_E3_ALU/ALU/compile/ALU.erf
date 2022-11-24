@@ -2,22 +2,42 @@ MESSAGE "Pass 1. Scanning modules hierarchy."
 MESSAGE_SP VCP2113 "Module \$root found in current working library."
 BEGINPROGRESS Compiling...
 UPDATEPROGRESS 35
+WARNING VCP2515 "Undefined module: SB_LFOSC was used. Port connection rules will not be checked at such instantiations." "C:/My_Designs/TP2_E3_ALU/ALU/src/MAIN.v" 87  70
+MESSAGE_SP VCP2113 "Module Teclado found in current working library."
+MESSAGE_SP VCP2113 "Module FSM found in current working library."
+MESSAGE_SP VCP2113 "Module Save found in current working library."
+MESSAGE_SP VCP2113 "Module ALU found in current working library."
+MESSAGE_SP VCP2113 "Module DISPLAY found in current working library."
 MESSAGE "Pass 2. Processing instantiations."
+MESSAGE_SP VCP2876 "Implicit net declaration, symbol number has not been declared in module MAIN." "C:/My_Designs/TP2_E3_ALU/ALU/src/MAIN.v" 103  86
+MESSAGE_SP VCP2876 "Implicit net declaration, symbol tipo has not been declared in module MAIN." "C:/My_Designs/TP2_E3_ALU/ALU/src/MAIN.v" 103  103
 UPDATEPROGRESS 45
+WARNING VCP2597 "Some unconnected ports remain at instance: my_main. Module MAIN has unconnected  port(s) : gpio_2, gpio_46, gpio_23, gpio_25, gpio_26, gpio_27, gpio_32, gpio_35, gpio_31, gpio_37, gpio_34, gpio_43, gpio_36, gpio_42." "C:/My_Designs/TP2_E3_ALU/ALU/src/MAIN.v" 124  1
 MESSAGE "Pass 3. Processing behavioral statements."
 UPDATEPROGRESS 80
 MESSAGE "Running Optimizer."
 MESSAGE "ELB/DAG code generating."
 MESSAGE_SP VCP2113 "Module \$root found in current working library."
+UPDATEPROGRESS 81
+UPDATEPROGRESS 82
 UPDATEPROGRESS 83
-UPDATEPROGRESS 86
+UPDATEPROGRESS 84
+UPDATEPROGRESS 85
+UPDATEPROGRESS 87
+UPDATEPROGRESS 88
+UPDATEPROGRESS 89
 UPDATEPROGRESS 90
-UPDATEPROGRESS 93
+UPDATEPROGRESS 91
+UPDATEPROGRESS 92
+UPDATEPROGRESS 94
+UPDATEPROGRESS 95
 UPDATEPROGRESS 96
+UPDATEPROGRESS 97
+UPDATEPROGRESS 98
 UPDATEPROGRESS 100
-MESSAGE "Unit top modules: text_FSM."
-MESSAGE "$root top modules: ALUv2 test_ALU TestSave text_FSM test_main testdisp."
+MESSAGE "Unit top modules: test_main."
+MESSAGE "$root top modules: ALUv2 test_ALU TestSave text_FSM test_main testdisp test_EN_logic test_color_logic test_encoder test_salida_teclado test_fsm_teclado test_lectura test_barrido test_teclado."
 ENDPROGRESS Compiling...
-SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time: 0[s]."
+SUCCESS "Compile success 0 Errors 2 Warnings  Analysis time: 0[s]."
 WARNING ALOG: "The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available."
 MESSAGE "done"

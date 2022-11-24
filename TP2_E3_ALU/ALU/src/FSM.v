@@ -37,13 +37,13 @@ module FSM ( tipo,			//Tipo de tecla	: azul  = 0 (número) y rojo = 1 (signo)
 	input clk;
 	output reg [1:0] register;		//Registro de memoria
 	output reg reset; 				//Activo alto
-	output reg [2:0] OE;
+	output reg [2:0] OE = 0;
 	output reg [3:0] save;
 	
 	//Registros y constantes
     reg op = 0;  					    //Determina si se tocó una operación aritmética válida
 	reg counter_num = 0;				//Determina si ya se presionó un número válido
-	reg [2:0] curr_y = WAITING;			//Current state
+	reg [2:0] curr_y = RESET;			//Current state
 	reg [2:0] next_Y;					//Next state
 
 	
@@ -58,7 +58,6 @@ module FSM ( tipo,			//Tipo de tecla	: azul  = 0 (número) y rojo = 1 (signo)
         case (curr_y)
             WAITING: 
 			begin 
-				OE = 0;	       //No se muestra en display
 				reset = 0;				  
 				register = 0;  //No se guarda nada
 				if (tipo)      //Si es un signo
@@ -141,6 +140,44 @@ module FSM ( tipo,			//Tipo de tecla	: azul  = 0 (número) y rojo = 1 (signo)
 				  counter_num =0;
 				  next_Y = WAITING;
 				end 
+			
+			5:
+			begin 
+         		  OE = OE;
+				  register = register;
+				  reset = reset;
+				  op = op;
+				  counter_num = counter_num;
+				  next_Y = WAITING;
+			end
+			6:
+			begin 
+         		  OE = OE;
+				  register = register;
+				  reset = reset;
+				  op = op;
+				  counter_num = counter_num;
+				  next_Y = WAITING;
+			end
+			7:
+			begin 
+         		  OE = OE;
+				  register = register;
+				  reset = reset;
+				  op = op;
+				  counter_num = counter_num;
+				  next_Y = WAITING;
+			end
+			default
+				begin 
+         		  OE = OE;
+				  register = register;
+				  reset = reset;
+				  op = op;
+				  counter_num = counter_num;
+				  next_Y = WAITING;
+				end
+			
 			
         endcase	
 	end	
